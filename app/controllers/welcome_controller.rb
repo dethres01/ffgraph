@@ -1,17 +1,23 @@
 
 class WelcomeController < ApplicationController  
+  before_action :get_logs, only: [:search,:graph] 
   def index
   end
   def search
-    @logs = find_report(params[:log])
-
+    
+    @report = params[:log]
     unless @logs
       flash[:alert] = "Log not found"
       return render action: :index
     end
 
   end
-
+  def graph
+    unless @logs
+      flash[:alert] = "Error Getting logs"
+      return render action: :index
+    end
+  end
   private
   def request_api(url)
     #url = https://www.fflogs.com/v1/report/fights/
@@ -27,5 +33,16 @@ class WelcomeController < ApplicationController
   end
   def find_report(report)
     request_api("https://www.fflogs.com/v1/report/fights/#{report}")
+  end
+  def get_logs
+    @logs = find_report(params[:log])
+    #iteration to eliminate the bugged fights or trash fights
+    
+    #iteration to fix the percentage metric
+    @logs.each do |h|
+      if !h['fightPercentage'].nil?
+        h['fightPercentage'] = (10000-h['fightPercentage'])/100
+      end
+    end
   end
 end  
