@@ -1,8 +1,19 @@
-
+<div class= "container-fluid mb-4 mt-4">
   <%= scatter_chart [
-    {name: "Garuda", data: @garuda_series},
+    {name: "Garuda", data: @garuda_series},#,marker:{symbol: 'url(https://cdn.discordapp.com/attachments/805973797538627614/811775096410341396/UwU.png)',width: 16,height: 16}},
     {name: "Ifrit", data: @ifrit_series},
     {name: "Titan", data: @titan_series},
     {name: "Lahabrea", data: @intermission_series},
     {name: "Ultima Weapon", data: @ultima_series}
-  ]%>
+  ],colors: ["#11d69b","#fa0019","#fac800","#e609b6","#0ee3dc"],
+  library: {
+    chart: 
+      {
+        backgroundColor: "#FFFFFF",
+        borderColor: '#000000',
+        borderWidth: 2,
+        type: 'line'
+
+      }
+      }%>
+</div>

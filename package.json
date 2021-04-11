@@ -8,7 +8,7 @@
     "@rails/webpacker": "5.2.1",
     "bootstrap": "5.0.0-beta2",
     "chart.js": "^3.0.2",
-    "chartkick": "^4.0.2",
+    "chartkick": "^4.0.3",
     "highcharts": "^9.0.1",
     "turbolinks": "^5.2.0"
   },

@@ -6,6 +6,7 @@ class UwuController < ApplicationController
   def search
     
     @report = params[:log]
+    #shdajksdh
     unless @logs
       flash[:alert] = "Log not found"
       return render action: :index
