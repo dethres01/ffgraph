@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get "welcome/index"  
+  get "uwu/index"  
   #search method
-  get '/search' => 'welcome#search'
-  get '/graph' => 'welcome#graph'
+  get 'uwu/search' => 'uwu#search'
+  get 'uwu/graph' => 'uwu#graph'
   root to: "welcome#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
